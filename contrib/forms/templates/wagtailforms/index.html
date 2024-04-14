@@ -1,0 +1,14 @@
+{% extends "console/base.html" %}
+{% load i18n %}
+{% block titletag %}{% trans "Forms" %}{% endblock %}
+{% block content %}
+    {% trans "Forms" as forms_str %}
+    {% trans "Pages" as select_form_str %}
+    {% include "cms/shared/header.html" with title=forms_str subtitle=select_form_str icon="form" %}
+
+    <div class="p">
+        <div id="form-results" class="forms">
+            {% include "wagtailforms/results_forms.html" %}
+        </div>
+    </div>
+{% endblock %}

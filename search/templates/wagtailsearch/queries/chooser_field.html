@@ -1,0 +1,10 @@
+{% extends "cms/shared/field.html" %}
+{% load i18n %}
+{% trans "Date" %}
+{% block form_field %}
+   <div class="chooser searchterm-chooser">
+       {{ field }}
+
+       <button type="button" id="{{ field.auto_id }}-chooser" class="button searchterms-chooser">{% trans "Choose from popular search terms" %}</button>
+    </div>
+{% endblock %}

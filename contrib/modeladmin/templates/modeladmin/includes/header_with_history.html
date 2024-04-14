@@ -1,0 +1,19 @@
+{% extends "cms/shared/header.html" %}
+{% load wagtailadmin_tags i18n %}
+
+{% block extra_rows %}
+<div class="row last-updated">
+    {% if latest_log_entry %}
+    <ul>
+        <li>
+            <img class="avatar small" title="{{ latest_log_entry.user_display_name }}" src="{% avatar_url latest_log_entry.user size=25 %}" alt="" />
+            {% trans "Last updated" %}
+            {% include "cms/shared/last_updated.html" with last_updated=latest_log_entry.timestamp time_prefix="at" %}
+        </li>
+        {% if history_url %}
+            <li><a href="{{ history_url }}">{% icon "history" class_name="default" %} {% trans "History" %}</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}
